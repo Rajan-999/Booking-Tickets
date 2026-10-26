@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="Discover unforgettable events and book your next experience with Tixly.">
+  <title>Tixly — Find your next experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Tixly home"><span class="brand-mark">t.</span><span>tixly</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="active" href="#discover">Discover</a>
+      <a href="#categories">Categories</a>
+      <a href="#popular">Popular</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button saved-shortcut" id="savedShortcut" aria-label="Show saved events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg><span class="saved-count" id="savedCount">0</span></button>
+      <button class="avatar-button" aria-label="Your account">JD</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" id="discover">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CITY, YOUR MOMENT</div>
+        <h1>Make room for<br>something <span>memorable.</span></h1>
+        <p>Find the events you'll be talking about long after the encore.</p>
+        <form class="search-panel" id="searchForm">
+          <label class="search-field event-search"><span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><span class="field-copy"><span class="field-label">WHAT ARE YOU INTO?</span><input id="searchInput" type="search" placeholder="Artist, event, or venue" autocomplete="off"></span></label>
+          <span class="search-divider"></span>
+          <label class="search-field location-search"><span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="field-copy"><span class="field-label">WHERE</span><select id="citySelect" aria-label="Choose a city"><option value="all">Anywhere</option><option>New York</option><option>Los Angeles</option><option>Chicago</option><option>Austin</option><option>Miami</option></select></span></label>
+          <button class="search-button" type="submit">Explore events <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="hero-note"><span class="avatars"><i>✦</i><i>♪</i><i>+</i></span><span><strong>2.4k+</strong> people found their plans this week</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-photo"></div>
+        <div class="floating-card"><span class="live-dot"></span><span><strong>Live right now</strong><small>Find your kind of night</small></span><span class="sound-bars"><i></i><i></i><i></i><i></i></span></div>
+        <div class="hero-sticker">GOOD<br>VIBES<br>ONLY <span>✳</span></div>
+      </div>
+      <div class="hero-scribble" aria-hidden="true">✳</div>
+    </section>
+
+    <section class="category-section" id="categories" aria-label="Browse by category">
+      <div class="section-topline"><div><span class="section-kicker">PICK YOUR PLOT</span><h2>What sounds good?</h2></div><a class="text-link" href="#popular">See all events <span>→</span></a></div>
+      <div class="category-list" id="categoryList">
+        <button class="category-chip selected" data-category="All"><span class="category-emoji">✦</span> All events</button>
+        <button class="category-chip" data-category="Music"><span class="category-emoji">♫</span> Music</button>
+        <button class="category-chip" data-category="Arts"><span class="category-emoji">◉</span> Arts &amp; culture</button>
+        <button class="category-chip" data-category="Food"><span class="category-emoji">♨</span> Food &amp; drink</button>
+        <button class="category-chip" data-category="Nightlife"><span class="category-emoji">☾</span> Nightlife</button>
+        <button class="category-chip" data-category="Outdoors"><span class="category-emoji">⌁</span> Outdoors</button>
+      </div>
+    </section>
+
+    <section class="events-section" id="popular">
+      <div class="events-heading"><div><span class="section-kicker">THE GOOD STUFF</span><h2>Happening near you <span class="heading-spark">✳</span></h2></div><button class="surprise-button" id="surpriseButton" type="button"><span>✳</span> Surprise me</button></div>
+      <div class="discovery-toolbar">
+        <span class="result-count" id="resultCount">8 experiences</span>
+        <div class="toolbar-controls">
+          <label class="control-select"><span>WHEN</span><select id="dateFilter" aria-label="Filter by date"><option value="any">Any date</option><option value="3">Next 3 days</option><option value="7">Next 7 days</option></select></label>
+          <label class="control-select sort-select"><span>SORT BY</span><select id="sortSelect" aria-label="Sort events"><option value="recommended">For you</option><option value="soonest">Soonest</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="popular">Top rated</option></select></label>
+          <label class="budget-control"><span>UP TO <strong id="budgetValue">$100</strong></span><input id="budgetRange" type="range" min="10" max="100" step="5" value="100" aria-label="Maximum ticket price"></label>
+          <div class="view-switch" role="group" aria-label="Event layout"><button class="view-button active" data-view="grid" aria-label="Grid view" title="Grid view">▦</button><button class="view-button" data-view="list" aria-label="List view" title="List view">☷</button><button class="view-button" data-view="map" aria-label="Map view" title="Map view">⌖</button></div>
+        </div>
+      </div>
+      <div class="events-grid" id="eventsGrid" aria-live="polite"></div>
+      <div class="events-map" id="eventsMap" aria-label="Map of event locations" hidden><div class="map-water"></div><div class="map-park park-one"></div><div class="map-park park-two"></div><div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-label label-one">DOWNTOWN</div><div class="map-label label-two">RIVER WALK</div><div class="map-pins" id="mapPins"></div><div class="map-legend"><span></span> Events worth going out for</div></div>
+      <div class="empty-state" id="emptyState" hidden><div>✳</div><h3>No events found</h3><p>Try another search or category to find your next great night.</p><button class="reset-button" id="resetFilters">Clear filters</button></div>
+      <div class="browse-more-wrap"><button class="browse-more" id="browseMore">Show me more <span>↓</span></button></div>
+    </section>
+
+    <section class="newsletter">
+      <div class="newsletter-star" aria-hidden="true">✳</div><div><span class="section-kicker">A LITTLE INSPIRATION</span><h2>Good plans land in your inbox.</h2><p>Get the week's best events, handpicked for you.</p></div>
+      <form id="newsletterForm"><label class="visually-hidden" for="emailInput">Email address</label><input type="email" id="emailInput" placeholder="Your email address" required><button type="submit">Count me in <span>↗</span></button></form>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">t.</span><span>tixly</span></a><span>Made for the moments that matter.</span><span>© 2025 Tixly, Inc.</span></footer>
+
+  <dialog class="booking-dialog" id="bookingDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="dialogClose" aria-label="Close booking dialog">×</button>
+    <div class="dialog-image" id="dialogImage"></div>
+    <div class="dialog-content"><span class="section-kicker" id="dialogCategory"></span><h2 id="dialogTitle">Event title</h2><p class="dialog-meta" id="dialogMeta"></p><div class="ticket-row"><div><strong>General admission</strong><small>Instant confirmation · Mobile ticket</small></div><strong id="ticketPrice">$0</strong></div><div class="quantity-row"><span>Tickets</span><div class="quantity-control"><button id="quantityMinus" aria-label="Remove one ticket">−</button><output id="quantityValue">1</output><button id="quantityPlus" aria-label="Add one ticket">+</button></div></div><div class="fee-row"><span>Service fee <small>$2 per ticket</small></span><span id="serviceFee">$2</span></div><div class="total-row"><span>Total</span><strong id="bookingTotal">$0</strong></div><button class="confirm-button" id="confirmBooking">Continue to checkout <span>↗</span></button><p class="secure-note">♡ &nbsp;Secure checkout · Mobile tickets</p></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
